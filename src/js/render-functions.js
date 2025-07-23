@@ -4,6 +4,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const galleryEl = document.querySelector(".gallery")
 const gallerySimpleLightBox = new SimpleLightbox(".gallery-link", {})
 const loaderEl = document.querySelector(".loader")
+const buttonLoadEl = document.querySelector(".load-more-button")
 
 export function createGallery(images) {
     let imgArrayString = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) =>
@@ -21,12 +22,23 @@ export function createGallery(images) {
     galleryEl.insertAdjacentHTML('beforeend', imgArrayString)
     gallerySimpleLightBox.refresh()
 };
+
 export function clearGallery() {
     galleryEl.innerHTML ='';
 };
+
 export function showLoader() {
 loaderEl.classList.remove("visually-hidden")
 };
+
 export function hideLoader() {
 loaderEl.classList.add("visually-hidden")
 };
+
+export function showLoadMoreButton() {
+    buttonLoadEl.classList.remove("visually-hidden")
+}
+
+export function hideLoadMoreButton() {
+    buttonLoadEl.classList.add("visually-hidden")
+}
